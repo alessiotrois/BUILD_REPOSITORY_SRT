@@ -1,0 +1,11 @@
+prefix=/home/alessio/work/BUILD_REPOSITORY_SRT_20161017/Projects/cfitsio_lib
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: cfitsio
+Description: FITS File Subroutine Library
+Version: 3.27
+Libs: -L${libdir} -lcfitsio 
+Libs.private: -lm
+Cflags: -I${includedir}

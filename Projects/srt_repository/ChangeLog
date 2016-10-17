@@ -1,0 +1,9 @@
+ChangeLog
+28/01/2009 Diminuito il tempo di campionamento dei file log da 16sec a 0.1 sec
+
+30/07/2010
+La soglia è stata definita usando il ratemeter AC_LAT1_1.
+Quando siamo in RECOVERY e AC_LAT1_1>24000
+la colonna PHASE è posta uguale a 1.
+Quando siamo in SAA e AC_LAT1_1<24000
+la colonna PHASE è posta uguale a 2.

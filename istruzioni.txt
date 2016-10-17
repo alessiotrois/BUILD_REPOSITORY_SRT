@@ -1,0 +1,17 @@
+
+gedit Projects/srt_repository/src/srt_repository_insert.cpp
+
+riga 231 inserire nome utente e password
+
+
+quindi ->
+make clean
+make install
+
+
+Chiamata al programma:
+~/bin/srt_repository_insert SRT_REPOSITORY_UFF /raid/roach2/20150922/20150922-124149-scicom-w3ohk_off/20150922-124149-scicom-w3ohk_off_002_001.fits tdays
+
+
+Quindi 
+~/bin/srt_repository_insert NOMEDB nomefile nomeTabella
