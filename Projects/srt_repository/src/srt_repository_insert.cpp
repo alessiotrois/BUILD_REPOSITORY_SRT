@@ -45,7 +45,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #define DEG2RAD 0.017453292519943295769
 #define RAD2DEG 57.295779513082320877
 
+#include <sys/stat.h>
 using namespace std;
+
+
+
+
+
+
+
+
 
 int main(int argc,char **argv) {
 
@@ -217,6 +226,24 @@ int main(int argc,char **argv) {
 	
 	fits_close_file(input, &status);	
 
+        
+        
+
+        float filesize = 0; 
+        struct stat st; 
+
+        if (stat(infile, &st) == 0)
+            filesize = ((st.st_size/1024./1024.)* 10.0)/10.0;   
+        
+        
+        
+//         cout<<round((filesize/1024./1024.)* 10.0)/10.0<<endl;
+        
+        
+        
+        
+        
+        
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -240,16 +267,12 @@ int main(int argc,char **argv) {
 		sprintf(express,"USE  %s",db);	
 		stmt->execute(express);
 		
-		
-		
 
-		
-// 		cout<<express<<endl;
 		stmt->execute(express);
 		
 
-		sprintf(express,"INSERT IGNORE INTO %s (filename, date, source, Project_Name, telescope, mjd_start, mjd_stop, frequency, bandwidth, localoscillator, samplerate, receiver, backend, project_dir, ScheduleName, source_ra, source_dec) VALUES ('%s', '%s', '%s',  '%s', '%s', %f, %f, %f, %f, %f, %f,'%s', '%s', '%s', '%s', %f, %f)",table, infile, date, source, Project_Name, telescope, mjd_start, mjd_stop, frequency, bandwidth, localoscillator, samplerate, receiver, backend, project_dir, ScheduleName, source_ra, source_dec);	
-		//cout<<express<<endl;
+		sprintf(express,"INSERT IGNORE INTO %s (filename, date, source, Project_Name, telescope, mjd_start, mjd_stop, frequency, bandwidth, localoscillator, samplerate, receiver, backend, project_dir, ScheduleName, source_ra, source_dec, size) VALUES ('%s', '%s', '%s',  '%s', '%s', %f, %f, %f, %f, %f, %f,'%s', '%s', '%s', '%s', %f, %f, %f)",table, infile, date, source, Project_Name, telescope, mjd_start, mjd_stop, frequency, bandwidth, localoscillator, samplerate, receiver, backend, project_dir, ScheduleName, source_ra, source_dec, filesize);	
+// 		cout<<express<<endl;
 		stmt->execute(express);
 
 		

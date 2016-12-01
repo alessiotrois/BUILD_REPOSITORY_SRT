@@ -34,23 +34,13 @@ VER_FILE_NAME = version.h
 ####### 2) Directories for the installation
 
 # Prefix for each installed program. Only ABSOLUTE PATH
-prefix=~/ADC
-adc_prefix=$(prefix)
-exec_prefix=$(prefix)/pippo
+
+
+exec_prefix=$(prefix)
 # The directory to install the binary files in.
 bindir=$(exec_prefix)/bin
 # The directory to install the local configuration file.
-confdir=$(exec_prefix)/conf
-# The directory to install the libraries in.
-libdir=$(exec_prefix)/lib
-# The directory to install the info files in.
-infodir=$(exec_prefix)/doc
-# The directory to install the include files in.
-includedir=$(exec_prefix)/include
-# The directory to install the ut files in.
 
-standarddir=$(prefix)/standard_analysis
-# The directory to install the include files in.
 
 ####### 3) Directories for the compiler
 BIN_DIR = bin
@@ -195,21 +185,6 @@ install: all
 	cp  $(BIN_DIR)/* ~/bin
 
 	
-	
-# 	if test -d $(UT_DIR); \
-# 	   then $(COPY_FILE) $(UT_DIR)/*.* $(utdir)/;\
-# 	fi
-# 
-# 	if test -d $(DATA_DIR); \
-# 	   then $(COPY_FILE) $(DATA_DIR)/*.* $(datadir)/;\
-# 	fi	
-		
-# 	if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i;	
-	
-# 	if test -d $(UT_DIR) then echo $(UT_DIR)
-# 	$(COPY_FILE) $(DATA_DIR)/*.lv1 $(datadir)
-	test ! -f $(INCLUDE_DIR)/*.h  || $(COPY_FILE) $(INCLUDE_DIR)/*.h $(includedir)
-
 
 
 
